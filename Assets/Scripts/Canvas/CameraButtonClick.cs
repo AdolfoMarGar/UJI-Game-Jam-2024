@@ -7,6 +7,7 @@ public class CameraButtonClick : MonoBehaviour
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject click_i;
     [SerializeField] private GameObject click_d;
+    [SerializeField] private GameObject click_c;
 
     // Movimiento camara
     [SerializeField] private Vector3 cameraRotation;
@@ -24,6 +25,7 @@ public class CameraButtonClick : MonoBehaviour
     {
         if (rotation) 
         {
+
             cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRotation, Time.deltaTime / r_time);
 
             if (Quaternion.Angle(cam.transform.rotation, targetRotation) < 0.01f) 
@@ -32,6 +34,7 @@ public class CameraButtonClick : MonoBehaviour
                 rotation = false; 
             }
         }
+
     }
 
     void OnMouseDown()
