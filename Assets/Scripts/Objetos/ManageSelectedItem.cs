@@ -50,15 +50,9 @@ public class ManageSelectedItem : MonoBehaviour
                 IdentifiableCharacter characterData = character.GetComponent<IdentifiableCharacter>();
                 if (characterData != null && identifiableObject != null)
                 {
-                    // Asegúrate de que el ID sea válido
-                    if (identifiableObject.id - 1 >= 0 && identifiableObject.id - 1 < characterData.values.Length)
-                    {
-                        reputacion += characterData.values[identifiableObject.id - 1];
-                    }
-                    else
-                    {
-                        Debug.LogWarning("ID fuera de rango para el array de valores.");
-                    }
+
+                    reputacion += characterData.values[identifiableObject.id - 1];
+
                 }
                 else
                 {
@@ -114,6 +108,22 @@ public class ManageSelectedItem : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // Si se hace clic izquierdo
         {
             HandleMouseClick();
+        }
+
+        CheckDoorState();
+    }
+
+    // Método para comprobar el estado de la puerta
+    private void CheckDoorState()
+    {
+        // Si identifiableObject es null o su id es 0, desactiva la puerta, de lo contrario, actívala
+        if (identifiableObject == null || identifiableObject.id == 0)
+        {
+            puerta.SetActive(false);
+        }
+        else
+        {
+            puerta.SetActive(true);
         }
     }
 

@@ -237,8 +237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   values: 000000000000000000000000000000000000000000000000000000000000000000000000
-  callSound: {fileID: 0}
-  ownSound: {fileID: 0}
+  callSound: {fileID: 8300000, guid: de89b48e581b3354395150d9890ef40f, type: 3}
+  ownSound: {fileID: 8300000, guid: 1b80e204386d1fe45bf2c25e99f9309a, type: 3}
 --- !u!212 &54356887
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -953,8 +953,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   values: 000000000000000000000000000000000000000000000000000000000000000000000000
-  callSound: {fileID: 0}
-  ownSound: {fileID: 0}
+  callSound: {fileID: 8300000, guid: 2d86e9eeaa3dd464cb3a00f4cea11ce0, type: 3}
+  ownSound: {fileID: 8300000, guid: 48de63900717c41468a63fcff0851c11, type: 3}
 --- !u!212 &540140789
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1054,8 +1054,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   values: 000000000000000000000000000000000000000000000000000000000000000000000000
-  callSound: {fileID: 0}
-  ownSound: {fileID: 0}
+  callSound: {fileID: 8300000, guid: de89b48e581b3354395150d9890ef40f, type: 3}
+  ownSound: {fileID: 8300000, guid: 1b80e204386d1fe45bf2c25e99f9309a, type: 3}
 --- !u!212 &554659230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1155,8 +1155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   values: 000000000000000000000000000000000000000000000000000000000000000000000000
-  callSound: {fileID: 0}
-  ownSound: {fileID: 0}
+  callSound: {fileID: 8300000, guid: 2d86e9eeaa3dd464cb3a00f4cea11ce0, type: 3}
+  ownSound: {fileID: 8300000, guid: 00dca22f0f0ab3743b4b5f378a523214, type: 3}
 --- !u!212 &622748799
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1349,8 +1349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   values: 000000000000000000000000000000000000000000000000000000000000000000000000
-  callSound: {fileID: 0}
-  ownSound: {fileID: 0}
+  callSound: {fileID: 8300000, guid: 436dce1151e8f7b48b0367f11b85b3ff, type: 3}
+  ownSound: {fileID: 8300000, guid: 21bff7df3fab1d644b771399c1da1343, type: 3}
 --- !u!212 &746850680
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2124,8 +2124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   values: 000000000000000000000000000000000000000000000000000000000000000000000000
-  callSound: {fileID: 0}
-  ownSound: {fileID: 0}
+  callSound: {fileID: 8300000, guid: 467d15764311d17489b07f541c95f1d9, type: 3}
+  ownSound: {fileID: 8300000, guid: c2a592707ad295c4280fb3be60d5743b, type: 3}
 --- !u!212 &1004009567
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2943,8 +2943,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   values: 000000000000000000000000000000000000000000000000000000000000000000000000
-  callSound: {fileID: 0}
-  ownSound: {fileID: 0}
+  callSound: {fileID: 8300000, guid: 467d15764311d17489b07f541c95f1d9, type: 3}
+  ownSound: {fileID: 8300000, guid: 5edfdb4a0c2fc71408b834a604d6bea7, type: 3}
 --- !u!212 &1858927605
 SpriteRenderer:
   m_ObjectHideFlags: 0
