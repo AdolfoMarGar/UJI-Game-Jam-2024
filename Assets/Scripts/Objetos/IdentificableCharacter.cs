@@ -4,8 +4,7 @@ using UnityEngine;
 public class IdentifiableCharacter : MonoBehaviour
 {
     public int id; // ID del objeto
-    public string[] values; // Array de valores asignados desde el editor
-
+    public int[] values; // Hazlo público para acceder desde otros scripts
     public AudioClip callSound; // Sonido para llamar a la puerta
     public AudioClip ownSound; // Sonido propio del objeto
 
@@ -44,12 +43,5 @@ public class IdentifiableCharacter : MonoBehaviour
         }
     }
 
-    // Método para mostrar los valores en la consola
-    public void ShowValues()
-    {
-        foreach (string value in values)
-        {
-            Debug.Log("Value: " + value);
-        }
-    }
+
 }
