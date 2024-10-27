@@ -22,6 +22,7 @@ public class ManageSelectedItem : MonoBehaviour
 
     private IdentifiableObject identifiableObject; // Referencia global a IdentifiableObject
 
+    // Variables para el manejo de los objetos "sofa" y "tele"
     public GameObject sofa; // Referencia al objeto sofa
     public GameObject tele; // Referencia al objeto tele
 
@@ -97,6 +98,7 @@ public class ManageSelectedItem : MonoBehaviour
         if (spriteRenderer != null)
         {
             spriteRenderer.enabled = true; // Activa el SpriteRenderer
+            Debug.Log("Iniciando lógica para: " + character.name);
 
             // Simula alguna lógica con el personaje (puedes reemplazarlo con tu propia lógica)
             // Aquí puedes usar corutinas adicionales, llamadas a métodos, etc.
@@ -104,6 +106,7 @@ public class ManageSelectedItem : MonoBehaviour
 
             // Puedes usar characterData o itemValue en tu lógica aquí
             // Por ejemplo, procesar valores de reputación, animaciones, etc.
+            Debug.Log("Lógica completada para: " + character.name);
 
             spriteRenderer.enabled = false; // Desactiva el SpriteRenderer
         }
@@ -203,6 +206,7 @@ public class ManageSelectedItem : MonoBehaviour
     // Método para comprobar el estado de la puerta
     private void CheckDoorState()
     {
+        // Si identifiableObject es null o su id es 0, desactiva la puerta, de lo contrario, actívala
         if (identifiableObject == null || identifiableObject.id == 0)
         {
             puerta.SetActive(false);
@@ -212,7 +216,6 @@ public class ManageSelectedItem : MonoBehaviour
             puerta.SetActive(true);
         }
     }
-
 
     // Método para inicializar el sprite original
     private void InitializeOriginalSprite()
@@ -257,6 +260,8 @@ public class ManageSelectedItem : MonoBehaviour
         // Lanza un rayo desde la cámara hacia donde se hizo clic
         if (Physics.Raycast(ray, out hit))
         {
+            // Muestra el nombre del objeto que ha sido tocado
+            Debug.Log("Tocado: " + hit.collider.gameObject.name);
 
             // Verifica si se clickeó en la puerta
             if (hit.collider.gameObject == puerta)
@@ -290,7 +295,7 @@ public class ManageSelectedItem : MonoBehaviour
             selectedObject.SetActive(false); // Desactiva el objeto seleccionado
             selectedObject = null; // Resetea la variable
         }
-        identifiableObject = null;
+
         // Cambia el sprite del spriteRendererObject al sprite original
         SetInitialSprite();
     }
@@ -315,6 +320,7 @@ public class ManageSelectedItem : MonoBehaviour
 
         if (identifiableObject != null)
         {
+            Debug.Log("ID del objeto clicado: " + identifiableObject.id);
             UpdateUIImage(obj);
             selectedObject = obj; // Almacena el objeto seleccionado
 
