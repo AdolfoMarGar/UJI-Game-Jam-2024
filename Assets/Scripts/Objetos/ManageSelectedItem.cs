@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,10 +16,16 @@ public class ManageSelectedItem : MonoBehaviour
 
     // Nuevas variables
     public GameObject spriteRendererObject; // Objeto con SpriteRenderer que se actualizará
+
+    public GameObject fondoPersonajes;
     public Sprite originalSpriteObject; // Sprite "original" a usar al inicio
     public Sprite alternateSprite; // Sprite alternativo que se utilizará si el objeto seleccionado no es el primero
 
     private IdentifiableObject identifiableObject; // Referencia global a IdentifiableObject
+
+    // Variables para el manejo de los objetos "sofa" y "tele"
+    public GameObject sofa; // Referencia al objeto sofa
+    public GameObject tele; // Referencia al objeto tele
 
     // Start se llama antes de la primera actualización del frame
     void Start()
@@ -26,9 +33,93 @@ public class ManageSelectedItem : MonoBehaviour
         InitializeOriginalSprite();
         SetInitialSprite();
 
-        // Comienza la corutina para ejecutar los métodos de todos los personajes en characterArray
-        StartCoroutine(ExecuteCharacterMethods());
+        // Muestra el sprite del sofá al inicio
+        ShowSofa();
+        //StartCoroutine(ExecuteCharacterMethods());
+
     }
+
+    // Método para manejar el clic en el sofá
+    public void OnSofaClick()
+    {
+        if (sofa != null)
+        {
+            sofa.SetActive(false); // Oculta el sofá
+            ShowTele(); // Muestra el tele
+        }
+    }
+
+    // Método para mostrar el sofá y ocultar el tele
+    private void ShowSofa()
+    {
+        if (sofa != null)
+        {
+            sofa.SetActive(true); // Activa el sofá
+            tele.SetActive(false); // Asegúrate de que el tele esté oculto
+        }
+        else
+        {
+            Debug.LogError("El objeto sofá no está asignado correctamente.");
+        }
+    }
+
+    // Método para mostrar el tele y ocultar el sofá
+    private void ShowTele()
+    {
+        if (tele != null)
+        {
+            tele.SetActive(true); // Activa el tele
+            sofa.SetActive(false); // Asegúrate de que el sofá esté oculto
+        }
+        else
+        {
+            Debug.LogError("El objeto tele no está asignado correctamente.");
+        }
+    }
+
+    // Método para manejar el clic en el tele
+    public void OnTeleClick()
+    {
+        if (tele != null)
+        {
+            tele.SetActive(false); // Oculta el tele
+            // Comienza la corutina para ejecutar los métodos de todos los personajes en characterArray
+            StartCoroutine(ExecuteCharacterMethods());
+        }
+    }
+    private IEnumerator ExecuteCharacterLogic(GameObject character, IdentifiableCharacter characterData, int itemValue)
+    {
+        // Activa el fondo de personajes
+        fondoPersonajes.SetActive(true);
+
+        // Obtén el SpriteRenderer del personaje
+        SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer>();
+
+        // Verifica que el SpriteRenderer no sea nulo antes de activarlo
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = true; // Activa el SpriteRenderer
+            Debug.Log("Iniciando lógica para: " + character.name);
+
+            // Simula alguna lógica con el personaje (puedes reemplazarlo con tu propia lógica)
+            // Aquí puedes usar corutinas adicionales, llamadas a métodos, etc.
+            yield return new WaitForSeconds(4f); // Simula un tiempo de espera para la lógica
+
+            // Puedes usar characterData o itemValue en tu lógica aquí
+            // Por ejemplo, procesar valores de reputación, animaciones, etc.
+            Debug.Log("Lógica completada para: " + character.name);
+
+            spriteRenderer.enabled = false; // Desactiva el SpriteRenderer
+        }
+        else
+        {
+            Debug.LogWarning("El SpriteRenderer no se encontró en el objeto: " + character.name);
+        }
+
+        // Desactiva el fondo de personajes
+        fondoPersonajes.SetActive(false);
+    }
+
 
     // Corutina para ejecutar métodos de todos los personajes en characterArray con pausas
     private IEnumerator ExecuteCharacterMethods()
@@ -48,24 +139,24 @@ public class ManageSelectedItem : MonoBehaviour
 
                 // Accede al componente IdentifiableCharacter para obtener el array values
                 IdentifiableCharacter characterData = character.GetComponent<IdentifiableCharacter>();
+                // Espera hasta que se interactúe con la puerta
+                yield return StartCoroutine(WaitForDoorInteraction());
+                yield return StartCoroutine(ExecuteCharacterLogic(character, characterData, characterData.values[identifiableObject.id - 1]));
+
                 if (characterData != null && identifiableObject != null)
                 {
-
                     reputacion += characterData.values[identifiableObject.id - 1];
-
                 }
                 else
                 {
                     Debug.LogWarning("IdentifiableCharacter o IdentifiableObject no está asignado.");
                 }
+
             }
             else
             {
                 Debug.LogWarning("El objeto en characterArray[" + n + "] es nulo.");
             }
-
-            // Espera hasta que se interactúe con la puerta
-            yield return StartCoroutine(WaitForDoorInteraction());
 
             Debug.Log("Reputacion: " + reputacion);
 
@@ -170,10 +261,21 @@ public class ManageSelectedItem : MonoBehaviour
         // Lanza un rayo desde la cámara hacia donde se hizo clic
         if (Physics.Raycast(ray, out hit))
         {
+            // Muestra el nombre del objeto que ha sido tocado
+            Debug.Log("Tocado: " + hit.collider.gameObject.name);
+
             // Verifica si se clickeó en la puerta
             if (hit.collider.gameObject == puerta)
             {
                 HandleDoorClick();
+            }
+            else if (hit.collider.gameObject == sofa)
+            {
+                OnSofaClick(); // Maneja el clic en el sofá
+            }
+            else if (hit.collider.gameObject == tele)
+            {
+                OnTeleClick(); // Maneja el clic en el tele
             }
             else
             {
@@ -181,6 +283,7 @@ public class ManageSelectedItem : MonoBehaviour
             }
         }
     }
+
 
     // Método para manejar el clic en la puerta
     private void HandleDoorClick()
