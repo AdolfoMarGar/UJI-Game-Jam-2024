@@ -18,11 +18,94 @@ public class ManageSelectedItem : MonoBehaviour
     public Sprite originalSpriteObject; // Sprite "original" a usar al inicio
     public Sprite alternateSprite; // Sprite alternativo que se utilizará si el objeto seleccionado no es el primero
 
+    private IdentifiableObject identifiableObject; // Referencia global a IdentifiableObject
+
     // Start se llama antes de la primera actualización del frame
     void Start()
     {
         InitializeOriginalSprite();
         SetInitialSprite();
+
+        // Comienza la corutina para ejecutar los métodos de todos los personajes en characterArray
+        StartCoroutine(ExecuteCharacterMethods());
+    }
+
+    // Corutina para ejecutar métodos de todos los personajes en characterArray con pausas
+    private IEnumerator ExecuteCharacterMethods()
+    {
+        // Recorre los índices desde 0 hasta 6, asegurándose de no exceder el tamaño del array
+        for (int n = 0; n < characterArray.Length && n <= 6; n++)
+        {
+            GameObject character = characterArray[n];
+            Debug.Log("Personaje: " + character.name);
+            if (character != null)
+            {
+                // Llama a los métodos
+                character.SendMessage("PlayCallSound", SendMessageOptions.DontRequireReceiver);
+                yield return new WaitForSeconds(3f); // Espera por el sonido de llamada
+
+                character.SendMessage("PlayOwnSound", SendMessageOptions.DontRequireReceiver);
+
+                // Accede al componente IdentifiableCharacter para obtener el array values
+                IdentifiableCharacter characterData = character.GetComponent<IdentifiableCharacter>();
+                if (characterData != null && identifiableObject != null)
+                {
+                    // Asegúrate de que el ID sea válido
+                    if (identifiableObject.id - 1 >= 0 && identifiableObject.id - 1 < characterData.values.Length)
+                    {
+                        reputacion += characterData.values[identifiableObject.id - 1];
+                    }
+                    else
+                    {
+                        Debug.LogWarning("ID fuera de rango para el array de valores.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("IdentifiableCharacter o IdentifiableObject no está asignado.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("El objeto en characterArray[" + n + "] es nulo.");
+            }
+
+            // Espera hasta que se interactúe con la puerta
+            yield return StartCoroutine(WaitForDoorInteraction());
+
+            Debug.Log("Reputacion: " + reputacion);
+
+            // Espera adicional de 2 segundos
+            yield return new WaitForSeconds(2f); // Pausa adicional entre personajes
+        }
+    }
+
+    // Nueva corutina para esperar interacción con la puerta
+    private IEnumerator WaitForDoorInteraction()
+    {
+        bool interacted = false;
+
+        // Mientras no se haya interactuado con la puerta, espera
+        while (!interacted)
+        {
+            // Verifica si se hace clic izquierdo
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                // Lanza un rayo desde la cámara hacia donde se hizo clic
+                if (Physics.Raycast(ray, out hit))
+                {
+                    // Verifica si se clickeó en la puerta
+                    if (hit.collider.gameObject == puerta)
+                    {
+                        interacted = true; // Marca que se ha interactuado
+                    }
+                }
+            }
+            yield return null; // Espera un frame antes de volver a verificar
+        }
     }
 
     // Update se llama una vez por frame
@@ -121,7 +204,7 @@ public class ManageSelectedItem : MonoBehaviour
     // Método para procesar el objeto seleccionado
     private void ProcessSelectedObject(GameObject obj)
     {
-        IdentifiableObject identifiableObject = obj.GetComponent<IdentifiableObject>();
+        identifiableObject = obj.GetComponent<IdentifiableObject>(); // Asignar globalmente
 
         if (identifiableObject != null)
         {
