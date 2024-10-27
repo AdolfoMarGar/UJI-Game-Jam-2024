@@ -53,8 +53,7 @@ public class Btn_Move : MonoBehaviour
 
         // Asegúrate de establecer la rotación final
         mainCamera.transform.rotation = endRotation;
-        Debug.Log("Cámara rotada: " + rotationAmount + " grados.");
-        Debug.Log("Cámara endRotation: " + endRotation.y + " grados.");
+
 
     }
 
