@@ -627,7 +627,7 @@ MonoBehaviour:
   myButton: {fileID: 282239440}
   mainCamera: {fileID: 353097152}
   rotationAmount: 50
-  r_time: 0.7
+  r_time: 1.2
 --- !u!1 &285613245
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 285613246}
   - component: {fileID: 285613247}
   m_Layer: 0
-  m_Name: Despensa
+  m_Name: Sofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -883,8 +883,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.64, y: 0.6399999, z: 0.2}
-  m_Center: {x: 0, y: 0.0000000018626451, z: 0.000000014901161}
+  m_Size: {x: 3.3709445, y: 3.4700503, z: 0.19999999}
+  m_Center: {x: -0.1431569, y: 0.09360024, z: 0.000000011978727}
 --- !u!114 &684852673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,8 +1295,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d1cc178a331544c439381d9e8effe7ca, type: 3}
-  m_Color: {r: 0.9056604, g: 0.7390531, b: 0.857533, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2ddb7233b8e295b4f9dbb31b8de0bd83, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1317,7 +1317,7 @@ GameObject:
   - component: {fileID: 936400493}
   - component: {fileID: 936400494}
   m_Layer: 0
-  m_Name: Puerta
+  m_Name: Esc_Puerta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1527,7 +1527,7 @@ MonoBehaviour:
   myButton: {fileID: 942067346}
   mainCamera: {fileID: 353097152}
   rotationAmount: -50
-  r_time: 1
+  r_time: 1.2
 --- !u!1 &966077692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7055504721848341490, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.57254905, g: 0.67058825, b: 0.63529414, a: 1}
+  m_Color: {r: 0.3647059, g: 0.52156866, b: 0.46274513, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1698,14 +1698,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a01087ce1455c7e4c8f2410c26afcfd2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d5899e7357bf58d498ee02aa9c4edf90, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1734,7 +1734,7 @@ PrefabInstance:
     - target: {fileID: 1702983104122418201, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8004118ba4145a74e823fedaa37acf3a, type: 3}
+      objectReference: {fileID: 21300000, guid: c605edf5d69299342b0643603f41fbeb, type: 3}
     - target: {fileID: 1702983104122418201, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1753,15 +1753,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1881,7 +1881,7 @@ GameObject:
   - component: {fileID: 1546465512}
   - component: {fileID: 1546465513}
   m_Layer: 0
-  m_Name: Tele
+  m_Name: Despensa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2066,8 +2066,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.48, y: 0.47999996, z: 0.2}
-  m_Center: {x: 0.00000011920929, y: 0.00000011920929, z: 0.000000014901161}
+  m_Size: {x: 5.5743685, y: 1.7754238, z: 0.19999999}
+  m_Center: {x: -0.029110033, y: 0.06549968, z: 0.000000011978727}
 --- !u!114 &1648894766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,7 +2239,8 @@ MonoBehaviour:
   - {fileID: 2065326064}
   - {fileID: 966077692}
   - {fileID: 244662245}
-  puerta: {fileID: 0}
+  characterArray: []
+  puerta: {fileID: 233727030}
 --- !u!1001 &1989849266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2457,7 +2458,7 @@ PrefabInstance:
     - target: {fileID: 1702983104122418201, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c54623997d885f6499655af6031a3bf9, type: 3}
+      objectReference: {fileID: 21300000, guid: b01a5b0b32d8f0f4c95758bbdba0e459, type: 3}
     - target: {fileID: 1702983104122418201, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2476,15 +2477,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2492,7 +2493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.10048485
+      value: -0.76
       objectReference: {fileID: 0}
     - target: {fileID: 6756910576568971682, guid: aa4556dd8f1e64316869d943c6c2bc57, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2583,7 +2584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4297016, g: 0.6415094, b: 0.28746885, a: 1}
+  m_Color: {r: 0.21176472, g: 0.56078434, b: 0.3019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
